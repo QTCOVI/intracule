@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the article below."
+title: "intracule: analytical radial intracule densities for Gaussian basis sets"
+license: GPL-3.0-or-later
+authors:
+  - family-names: Francisco
+    given-names: Evelio
+    orcid: "https://orcid.org/0000-0002-2717-6220"
+    affiliation: "Universidad de Oviedo"
+  - family-names: Quiñonero
+    given-names: José Antonio
+    orcid: "https://orcid.org/0009-0005-7809-3424"
+    affiliation: "Universidad de Oviedo"
+  - family-names: Martín Pendás
+    given-names: Ángel
+    orcid: "https://orcid.org/0000-0002-4471-4000"
+    affiliation: "Universidad de Oviedo"

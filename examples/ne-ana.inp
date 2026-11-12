@@ -1,0 +1,6 @@
+ne.wfn
+threads 4
+intracule
+  bessel
+  integrate analytic
+end

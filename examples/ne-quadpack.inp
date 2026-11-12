@@ -1,0 +1,7 @@
+ne.wfn
+threads 4
+intracule
+  bessel
+  quadpack
+  integrate analytic
+end

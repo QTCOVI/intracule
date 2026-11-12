@@ -1,0 +1,177 @@
+ # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ #
+ #   @@  @@      @@ @@@@@@@@@ @@@@@@     @@@@@@    @@@@@@  @@    @@  @@     @@@@@@
+ #   @@  @@      @@    @@     @@    @   @@    @@  @@@      @@    @@  @@     @@
+ #   @@  @@@     @@    @@     @@    @   @@    @@  @@       @@    @@  @@     @@
+ #   @@  @@ @    @@    @@     @@@@@@@   @@    @@  @@       @@    @@  @@     @@
+ #   @@  @@  @   @@    @@     @@@       @@@@@@@@  @@       @@    @@  @@     @@@@
+ #   @@  @@   @  @@    @@     @@ @      @@    @@  @@       @@    @@  @@     @@
+ #   @@  @@    @ @@    @@     @@  @     @@    @@  @@       @@    @@  @@     @@
+ #   @@  @@     @@@    @@     @@   @    @@    @@  @@@      @@    @@  @@     @@
+ #   @@  @@     @@@    @@     @@    @   @@    @@   @@@@@@   @@@@@@   @@@@@@ @@@@@@
+ #
+ # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ # (c) E. Francisco & A. Martín Pendás, J.A. Quiñonero
+ # University of Oviedo, July 10 (2026)
+ # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ #
+ # Calculation starts at 2026.11.12, 18:56:21.832
+ #
+ #
+ # Begin reading the input file of the run
+ #
+    Line   1  -->  kr2-rhf-sto3g-r8p06.wfn
+    Line   2  -->  threads 32
+    Line   3  -->  intracule
+    Line   4  -->    bessel
+    Line   5  -->    nrad 2
+    Line   6  -->    lebedev 6
+    Line   7  -->    binary128 always
+    Line   8  -->    integrate numerical
+    Line   9  -->  end
+ #
+ # End reading the input file of the run
+ #
+ # Number of OMP threads :   1
+ # Number of MPI process :   1
+ # 
+ # Input number of Primitives      114 reduced to      114
+ # 
+ # Description of the Primitive Basis Set
+ # Total number of Primitive Gaussians:    114
+ # CENTER    1 : [ 12s |  9p | 3d |  0f |  0g ] basis
+ # CENTER    2 : [ 12s |  9p | 3d |  0f |  0g ] basis
+ # WAVEFUNCTION ACCOUNT:
+ # File: kr2-rhf-sto3g-r8p06.wfn
+ # Number of Centers:   2
+ # Center of mass :   0.0000  0.0000  0.0000
+ # Center of charge :   0.0000  0.0000  0.0000
+ # Inertia eigenvalues (au) :   0.81375033E+02  0.81375033E+02  0.00000000E+00
+ # Molecule: KR(   2) 
+ # Molecular Weight:    167.600006
+ # Cartesian coordinates of centers:
+
+        1   KR     0.00000000    0.00000000    4.03000000
+        2   KR     0.00000000    0.00000000   -4.03000000
+
+ # Number of Primitives         :  114    reduced to  114
+ # Number of Molecular Orbitals :   36
+ # Maximum l in Basis Set       :    2
+ #------------------------------------------------------------------------
+ # RESTRICTED CLOSED SHELL HF WAVEFUNCTION (RHF)
+ # Total energy                          :    -5445.9216011607
+ # Virial                                :   1.99979491
+ # Number of Electrons                   :   72.0000000000
+ # Total charge of the molecule          :    0.0000000000
+ # Number of Singly occupied MOs         :        0
+ # Number of Double occupied MOs         :       36
+ # Number of Open-Shell (ALPHA/BETA) MOs :        0        0
+ #------------------------------------------------------------------------
+ # Natural MOs occupations (OCC) & Orbital energies
+ # OCCs from file "kr2-rhf-sto3g-r8p06.wfn"
+ # MO    1   OCC =      2.00000000   ORB ENERGY =   -514.26426735
+ # MO    2   OCC =      2.00000000   ORB ENERGY =   -514.26426733
+ # MO    3   OCC =      2.00000000   ORB ENERGY =    -67.84172213
+ # MO    4   OCC =      2.00000000   ORB ENERGY =    -67.84171716
+ # MO    5   OCC =      2.00000000   ORB ENERGY =    -62.21572751
+ # MO    6   OCC =      2.00000000   ORB ENERGY =    -62.21572742
+ # MO    7   OCC =      2.00000000   ORB ENERGY =    -62.21572742
+ # MO    8   OCC =      2.00000000   ORB ENERGY =    -62.21572741
+ # MO    9   OCC =      2.00000000   ORB ENERGY =    -62.21572741
+ # MO   10   OCC =      2.00000000   ORB ENERGY =    -62.21572731
+ # MO   11   OCC =      2.00000000   ORB ENERGY =    -10.09737562
+ # MO   12   OCC =      2.00000000   ORB ENERGY =    -10.09737152
+ # MO   13   OCC =      2.00000000   ORB ENERGY =     -7.77375528
+ # MO   14   OCC =      2.00000000   ORB ENERGY =     -7.77374274
+ # MO   15   OCC =      2.00000000   ORB ENERGY =     -7.77374274
+ # MO   16   OCC =      2.00000000   ORB ENERGY =     -7.77374112
+ # MO   17   OCC =      2.00000000   ORB ENERGY =     -7.77374112
+ # MO   18   OCC =      2.00000000   ORB ENERGY =     -7.77372854
+ # MO   19   OCC =      2.00000000   ORB ENERGY =     -2.90727548
+ # MO   20   OCC =      2.00000000   ORB ENERGY =     -2.90727548
+ # MO   21   OCC =      2.00000000   ORB ENERGY =     -2.90727548
+ # MO   22   OCC =      2.00000000   ORB ENERGY =     -2.90727548
+ # MO   23   OCC =      2.00000000   ORB ENERGY =     -2.90727545
+ # MO   24   OCC =      2.00000000   ORB ENERGY =     -2.90727545
+ # MO   25   OCC =      2.00000000   ORB ENERGY =     -2.90727544
+ # MO   26   OCC =      2.00000000   ORB ENERGY =     -2.90727544
+ # MO   27   OCC =      2.00000000   ORB ENERGY =     -2.90727544
+ # MO   28   OCC =      2.00000000   ORB ENERGY =     -2.90727543
+ # MO   29   OCC =      2.00000000   ORB ENERGY =     -0.96124802
+ # MO   30   OCC =      2.00000000   ORB ENERGY =     -0.96041170
+ # MO   31   OCC =      2.00000000   ORB ENERGY =     -0.40485078
+ # MO   32   OCC =      2.00000000   ORB ENERGY =     -0.40317471
+ # MO   33   OCC =      2.00000000   ORB ENERGY =     -0.40317471
+ # MO   34   OCC =      2.00000000   ORB ENERGY =     -0.40292175
+ # MO   35   OCC =      2.00000000   ORB ENERGY =     -0.40292175
+ # MO   36   OCC =      2.00000000   ORB ENERGY =     -0.40123933
+
+ # Number of OMP THREADS changed to  32
+ # Maximum Number of OMP THREADS is  32
+ #
+ # Radial Intracule Density
+ # -----------------------------------------
+ # Eulec-Maclaurin radial grid with n=1 used
+ # r = rmid * q/(1-q)
+ # q-mesh = uniform on the interval (0,+1)
+ # Number of radial points is            2
+ # The value of RMID is         0.50000000000000000     
+
+ # Using STANDARD radial integration
+
+ # Using NUMERICAL (Becke) angular integration
+ # Lebedev angular quadrature with      6 points
+ # Computing 2RDM over Canonical Orbitals
+ # Computing E_ij^t coefficients
+ # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ # Spherically averaged intracule density at R = 
+ # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      0.25000000      1.00000000
+ # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+ # Spherical Intracule density (Lebedev quadrature) (Tot <- 2RDM, Coul <- 2RDM Coul, XC <- 2RDM(XC) ,XC-DF <- 2RDM(XC-Dirac-Fock))
+ # -------------------------------------------------------------------------------------------------------------
+ #       R              IDensity (Tot)         IDensity (Coul)          IDensity (XC)          Density (XC-DF)
+ # -------------------------------------------------------------------------------------------------------------
+      0.25000000   0.105755114354327E+03   0.114094689974531E+03  -0.833957562020457E+01  -0.833957562020457E+01
+      1.00000000   0.710364395940317E+02   0.721239167288817E+02  -0.108747713484995E+01  -0.108747713484995E+01
+ # ------------------------------------------------------------------------------------
+ # Exact (no numerical) Integrated Quantities
+ # ------------------------------------------------------------------------------------
+ # Electron-Electron repulsion energy          =   2322.14227206
+ # Coulomb repulsion energy                    =   2511.71894671
+ # Exchange-Correlation (XC) repulsion energy  =   -189.57667465
+ # Dirac-Fock XC repulsion energy              =   -189.57667465
+ # Total Ordered pairs                         =   5112.00006637 (it should be 5112)
+ # Coulomb Ordered Pairs                       =   5184.00006730 (it should be 5184)
+ # XC Ordered pairs                            =     72.00000093 (it should be   72)
+ # Dirac-Fock Ordered Pairs                    =     72.00000093
+ # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ # Ordered pairs (norm pass): BINARY128 ALWAYS
+ # Quartets in binary128 =      1382976 of      1382976
+ # (the repulsion energies are always evaluated in binary64)
+ # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ # Energetic and Electron Population from Intracule
+ # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ # Electron-Electron repulsion energy          =   1666.22114130
+ # Coulomb repulsion energy                    =   1755.06902034
+ # Exchange-Correlation (XC) repulsion energy  =    -88.84787904
+ # Dirac-Fock XC repulsion energy              =    -88.84787904
+ # Total Ordered pairs                         =   1837.36457610 (it should be 5112)
+ # Coulomb Ordered Pairs                       =   1897.16236142 (it should be 5184)
+ # XC Ordered pairs                            =     59.79778532 (it should be   72)
+ # Dirac-Fock Ordered Pairs                    =     59.79778532
+ # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ #-----------------------------------------------------
+ #    timer:
+ #   
+ # -pid-----------name-----------------cumtime--------pcalls--popen-
+ #   1      _intracule__________     565.230646          1       F
+ #   2      _rdm2MOs____________       0.021255          1       F
+ #   3      _lebicule_claude1___     235.973251          1       F
+ #   4      _radial_integ_______     329.198029          1       F
+ #
+
+ # Total elapsed time =      565.231736 seconds

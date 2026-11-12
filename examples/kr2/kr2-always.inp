@@ -1,0 +1,9 @@
+kr2-rhf-sto3g-r8p06.wfn
+threads 32
+intracule
+  bessel
+  nrad 2
+  lebedev 6
+  binary128 always
+  integrate numerical
+end

@@ -1,0 +1,9 @@
+*.o
+*.mod
+src/intracule
+*.swp
+github-token
+*token*
+*.pem
+.env
+.netrc
