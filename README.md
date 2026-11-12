@@ -38,6 +38,7 @@ binary128 for every quartet and `BINARY128 NEVER` the binary64 path alone. The r
 | `src/` | Fortran 77/90 sources and `Makefile` (main program `intracule.f`, driver `otroiculedrv.f90`) |
 | `src/alltdsg.f` | tabulated spherical t-design grids (63 MB of data statements; see the note below) |
 | `examples/` | Kr₂ RHF/STO-3G binary128 test (`kr2/`); Ne atom, RHF/cc-pVTZ: `make_ne_wfn.py` (PySCF script that writes `ne.wfn`), two inputs, reference outputs, PySCF reference energies |
+| `tools/wfn_precision.py` | checks the orthonormality of the MOs in a `.wfn` file and the sum rules they imply (NumPy) |
 | `LICENSE` | GNU General Public License v3 |
 
 ## Requirements and build
@@ -105,9 +106,18 @@ follows it is the quantity of interest (ignore the 2-point numerical sums printe
 | `ALWAYS` | 5112.00006637 | 5184.00006730 | 72.00000093 | all | 9.4 min |
 
 Binary64 alone loses 2.8% of the norm. The remaining 1.3×10⁻⁸ relative deviation from 5112 is the
-same in every binary128 run and in an independent implementation; it is consistent with the
-8-digit MO coefficients of the `.wfn` file. The wall times include the repulsion-energy pass,
+same in every binary128 run and in an independent implementation, and it is exactly the one implied
+by the 8-digit MO coefficients of the `.wfn` file (see `tools/wfn_precision.py` below). The wall times include the repulsion-energy pass,
 which is always done in binary64.
+
+### Checking the input wavefunction (`tools/wfn_precision.py`)
+
+The small deviations from the exact sum rules (1e-8 to 1e-9 relative) come from the `.wfn` file,
+whose MO coefficients have eight significant digits, not from the integration.
+`python tools/wfn_precision.py file.wfn` computes, in float64 and independently of `intracule`, the
+electron count N′ = tr(DS) and the pair counts N′² and −½ tr(DSDS) implied by the stored orbitals
+(closed-shell single determinants). For every test system they coincide with the analytic norms of
+`intracule` to all printed digits, e.g. Kr₂ 5112.00006637, 5184.00006730, −72.00000093.
 
 Running `intracule` without arguments, or the `usage` keyword, prints all keywords
 (radial mapping `RMESH`, `QUADPACK`, `LEBEDEV`/`TDESIGN` grids, tolerances `ABSQUADERR`/`RELQUADERR`, ...).
