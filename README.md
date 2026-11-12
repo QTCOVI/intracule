@@ -1,6 +1,6 @@
 # intracule
 
-Analytical radial intracule densities $I(R)$ for atoms and molecules from Gaussian-basis wavefunctions.
+Analytical radial intracule densities I(R) for atoms and molecules from Gaussian-basis wavefunctions.
 
 This repository contains the Fortran program used in
 
@@ -8,28 +8,28 @@ This repository contains the Fortran program used in
 > *Quadrature-Free Radial Intracule Densities: A Bessel-Harmonic Formulation for Gaussian Basis Sets*,
 > J. Chem. Theory Comput. (submitted).
 
-`src/` is the general program (E. Francisco): it reads a wavefunction in AIMPAC `.wfn` format (single determinant or CI/CAS
+The program reads a wavefunction in AIMPAC `.wfn` format (single determinant or CI/CAS
 expansion), builds the second-order density matrix, and computes the spherically averaged
-intracule density $I(R)$ together with its Coulomb, exchange-correlation and Dirac-Fock
-components. The angular average over the orientation of $\mathbf{R}$ is done analytically:
-the coupling exponential $e^{2\mu\mathbf{R}\cdot\mathbf{T}}$ is expanded in modified spherical
+intracule density I(R) together with its Coulomb, exchange-correlation and Dirac-Fock
+components. The angular average over the orientation of **R** is done analytically:
+the coupling exponential exp(2μ **R**·**T**) is expanded in modified spherical
 Bessel functions and real spherical harmonics, and the expansion terminates exactly at
-$l=p_x+p_y+p_z$. The radial moments $\int_0^\infty R^n I(R)\,dR$ (norm $N(N-1)$, $V_{ee}$, and their
-Coulomb/XC analogues) are obtained in closed form through ${}_1F_1$, by adaptive QUADPACK
-integration, or on Euler-Maclaurin/Becke radial grids. Lebedev and spherical t-design angular
+l = p<sub>x</sub> + p<sub>y</sub> + p<sub>z</sub>. The radial moments ∫₀<sup>∞</sup> Rⁿ I(R) dR (norm N(N−1), V<sub>ee</sub>, and their
+Coulomb/XC analogues) are obtained in closed form through ₁F₁, by adaptive QUADPACK
+integration, or on Euler–Maclaurin/Becke radial grids. Lebedev and spherical t-design angular
 quadratures are kept as numerical references.
 
-For heavy atoms the angular-momentum coupling of the analytic norm cancels by 12-15 orders of
-magnitude (Kr$_2$, STO-3G), and binary64 loses the norm. The program therefore carries a binary128
+For heavy atoms the angular-momentum coupling of the analytic norm cancels by 12–15 orders of
+magnitude (Kr₂, STO-3G), and binary64 loses the norm. The program therefore carries a binary128
 (`real(16)`) path for the analytic norm pass (`src/binary128.f90`, `src/computeEcoef_q.f`; ported
 from the binary128 chain of J. A. Quiñonero): Hermite expansion coefficients, Gaussian prefactors,
-angular tables $G_{lm}$, real spherical harmonics, the Jtab coupling and the radial integrals, which
-use the terminating Kummer polynomial $e^{-x}{}_1F_1(a;b;x)={}_1F_1(1-m;b;-x)$, $m=(n-l)/2\ge 1$
-(positive terms only, no library ${}_1F_1$). By default (`BINARY128 AUTO`) every shell quartet is
+angular tables G<sub>lm</sub>, real spherical harmonics, the Jtab coupling and the radial integrals, which
+use the terminating Kummer polynomial e⁻ˣ ₁F₁(a; b; x) = ₁F₁(1−m; b; −x), m = (n−l)/2 ≥ 1
+(positive terms only, no library ₁F₁). By default (`BINARY128 AUTO`) every shell quartet is
 first evaluated in binary64 with a running rounding-error estimate, and only the quartets whose
 estimated relative error exceeds a tolerance are recomputed in binary128; `BINARY128 ALWAYS` uses
 binary128 for every quartet and `BINARY128 NEVER` the binary64 path alone. The repulsion energies
-($R^{-1}$ moments, non-terminating ${}_1F_1$) are always evaluated in binary64.
+(R⁻¹ moments, non-terminating ₁F₁) are always evaluated in binary64.
 
 ## Layout
 
@@ -37,12 +37,12 @@ binary128 for every quartet and `BINARY128 NEVER` the binary64 path alone. The r
 | --- | --- |
 | `src/` | Fortran 77/90 sources and `Makefile` (main program `intracule.f`, driver `otroiculedrv.f90`) |
 | `src/alltdsg.f` | tabulated spherical t-design grids (63 MB of data statements; see the note below) |
-| `examples/` | Kr2 RHF/STO-3G binary128 test (`kr2/`); Ne atom, RHF/cc-pVTZ: `make_ne_wfn.py` (PySCF script that writes `ne.wfn`), two inputs, reference outputs, PySCF reference energies |
+| `examples/` | Kr₂ RHF/STO-3G binary128 test (`kr2/`); Ne atom, RHF/cc-pVTZ: `make_ne_wfn.py` (PySCF script that writes `ne.wfn`), two inputs, reference outputs, PySCF reference energies |
 | `LICENSE` | GNU General Public License v3 |
 
 ## Requirements and build
 
-- gfortran (tested with GCC 15) with OpenMP
+- gfortran (tested with GCC 11 and 15) with OpenMP
 - GNU Scientific Library (`libgsl`, `libgslcblas`; on Debian/Ubuntu `apt install libgsl-dev`)
 
 ```bash
@@ -65,7 +65,7 @@ magnitude slower than binary64; `BINARY128 AUTO` keeps the extra cost to the qua
 ./intracule < input.inp > output.out
 ```
 
-Two examples, Ne RHF/cc-pVTZ (`examples/`, 1-2 minutes each on 4 cores):
+Two examples, Ne RHF/cc-pVTZ (`examples/`, 1–2 minutes each on 4 cores):
 
 ```
 ne.wfn
@@ -79,32 +79,32 @@ end
 
 | | `ne-ana.out` (fixed grid) | `ne-quadpack.out` (QUADPACK) | Exact / PySCF |
 | --- | --- | --- | --- |
-| Norm, N(N-1) | 89.99999999 | 89.99999995 | 90 |
-| Coulomb pairs, N^2 | 100.00000002 | 99.99999994 | 100 |
+| Norm, N(N−1) | 89.99999999 | 89.99999995 | 90 |
+| Coulomb pairs, N² | 100.00000002 | 99.99999994 | 100 |
 | XC pairs, abs. value (= N) | 10.00000003 | 9.99999999 | 10 |
-| V_ee | 54.06591036 | 54.06698053 | 54.06698054 |
-| V_ee Coulomb | 66.17838974 | 66.18053009 | 66.18053010 |
-| V_ee XC | -12.11247938 | -12.11354957 | -12.11354956 |
+| V<sub>ee</sub> | 54.06591036 | 54.06698053 | 54.06698054 |
+| V<sub>ee</sub> Coulomb | 66.17838974 | 66.18053009 | 66.18053010 |
+| V<sub>ee</sub> XC | −12.11247938 | −12.11354957 | −12.11354956 |
 
-The XC pair count is printed with a positive sign; its magnitude is N, the -N sum rule of the
-article. The fixed radial grid is good for the norms but leaves a 2e-5 relative error in V_ee;
-QUADPACK reproduces the PySCF energies (`examples/reference_pyscf.txt`) to 1e-8 hartree.
+The XC pair count is printed with a positive sign; its magnitude is N, the −N sum rule of the
+article. The fixed radial grid is good for the norms but leaves a 2×10⁻⁵ relative error in V<sub>ee</sub>;
+QUADPACK reproduces the PySCF energies (`examples/reference_pyscf.txt`) to 10⁻⁸ hartree.
 `make_ne_wfn.py` regenerates `ne.wfn`.
 
-### Binary128: Kr2 RHF/STO-3G (`examples/kr2/`)
+### Binary128: Kr₂ RHF/STO-3G (`examples/kr2/`)
 
 The heavy-atom case of the article (Table 5, R = 8.06 bohr), run with the three values of the
 `BINARY128` keyword. The inputs compute only the closed-form norms: `integrate numerical` with
 `nrad 2` and `lebedev 6` makes the numerical I(R) step trivial, and the analytic norm pass that
 follows it is the quantity of interest (ignore the 2-point numerical sums printed after it).
 
-| `BINARY128` | N(N-1) (5112) | N^2 (5184) | XC (72) | quartets in binary128 | wall time, 32 cores |
+| `BINARY128` | N(N−1) (5112) | N² (5184) | XC (72) | quartets in binary128 | wall time, 32 cores |
 | --- | --- | --- | --- | --- | --- |
 | `NEVER`  | 4969.26309225 | 5041.24418188 | 71.98108964 | 0 | 8.3 min |
-| `AUTO` (default, tol 1e-10) | 5112.00006641 | 5184.00006735 | 72.00000093 | 240 453 of 1 382 976 | 9.4 min |
+| `AUTO` (default, tol 10⁻¹⁰) | 5112.00006641 | 5184.00006735 | 72.00000093 | 240 453 of 1 382 976 | 9.4 min |
 | `ALWAYS` | 5112.00006637 | 5184.00006730 | 72.00000093 | all | 9.4 min |
 
-Binary64 alone loses 2.8% of the norm. The remaining 1.3e-8 relative deviation from 5112 is the
+Binary64 alone loses 2.8% of the norm. The remaining 1.3×10⁻⁸ relative deviation from 5112 is the
 same in every binary128 run and in an independent implementation; it is consistent with the
 8-digit MO coefficients of the `.wfn` file. The wall times include the repulsion-energy pass,
 which is always done in binary64.
@@ -117,9 +117,9 @@ Running `intracule` without arguments, or the `usage` keyword, prints all keywor
 | Paper item | System | Input |
 | --- | --- | --- |
 | Test | Ne RHF/cc-pVTZ | `examples/ne-ana.inp`, `examples/ne-quadpack.inp` |
-| Table 5, analytic norm (one geometry) | Kr2 RHF/STO-3G, R = 8.06 bohr | `examples/kr2/kr2-{never,auto,always}.inp` |
+| Table 5, analytic norm (one geometry) | Kr₂ RHF/STO-3G, R = 8.06 bohr | `examples/kr2/kr2-{never,auto,always}.inp` |
 <!-- TODO(authors): add wfn files and inputs/outputs for Table 1 (all molecules), Table 2 and Figs. 2, 4
-     (H2 FCI scan), Table 3 (C2H6), Table 4 and Fig. 5 (CO CCSD), Table 5 and Fig. 6 (Kr2 scan),
+     (H2 FCI scan), Table 3 (C2H6), Table 4 and Fig. 5 (CO CCSD), Table 5 and Fig. 6 (Kr₂ scan),
      Fig. 1 (F3-), Fig. 3 (Ne2 CAS) -->
 
 ## Licence
